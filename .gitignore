@@ -1,0 +1,42 @@
+# --- Python virtual environment ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.egg-info/
+.cache/
+
+# --- Environment variables ---
+.env
+.env.*
+
+# --- Data and generated files ---
+data/
+*.csv
+*.xlsx
+*.xls
+*.json
+*.pkl
+*.parquet
+
+# --- Streamlit and build artifacts ---
+.streamlit/
+*.log
+*.db
+*.sqlite
+*.bak
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+
+# --- IDE/project configs ---
+.vscode/
+.idea/
+*.swp
+
+# --- Jupyter or notebook checkpoints ---
+.ipynb_checkpoints/
+*.ipynb
