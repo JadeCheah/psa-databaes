@@ -6,9 +6,9 @@ AZURE_API_KEY = (
     os.getenv("AZURE_OPENAI_API_KEY")
     or os.getenv("PSA_SUBSCRIPTION_KEY")   # fallback for Codesprint key
 )
-AZURE_ENDPOINT = os.getenv("AZURE_APIM_BASE", "https://psacodesprint2025.azure-api.net")
-AZURE_DEPLOYMENT = os.getenv("DEPLOYMENT_GPT", "text-gpt-4o-mini")
-AZURE_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-10-21")
+AZURE_ENDPOINT = os.getenv("AZURE_APIM_BASE", "https://psacodesprint202-2.azure-api.net")
+AZURE_DEPLOYMENT = os.getenv("DEPLOYMENT_GPT", "gpt-4.1-nano")
+AZURE_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2025-01-01-preview")
 
 client = AzureOpenAI(
     api_key=AZURE_API_KEY,
