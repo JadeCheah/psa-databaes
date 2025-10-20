@@ -13,13 +13,13 @@ __pycache__/
 .env.*
 
 # --- Data and generated files ---
-data/
-*.csv
-*.xlsx
-*.xls
-*.json
-*.pkl
-*.parquet
+# data/
+# *.csv
+# *.xlsx
+# *.xls
+# *.json
+# *.pkl
+# *.parquet
 
 # --- Streamlit and build artifacts ---
 .streamlit/
