@@ -70,8 +70,32 @@ def render_chat_tab(emp_id: str, id_to_profile: dict[str, dict], emb_cache):
         ])
 
     # --- RENDER CHAT HISTORY ---
-    for role, text in st.session_state.chat[-8:]:
-        if role == "you":
-            st.markdown(f"**You:** {text}") if role=="you" else text
+
+    # group messages into exchanges: [("you", q), ("pathai", reply)]
+    exchanges = []
+    i = 0
+    chat = st.session_state.chat
+    while i < len(chat):
+        if i + 1 < len(chat) and chat[i][0] == "you" and chat[i+1][0] == "pathai":
+            exchanges.append(chat[i:i+2])
+            i += 2
         else:
-            st.markdown(text)
+            exchanges.append([chat[i]])
+            i += 1
+    
+    # show the last N exchanges, newest first
+    N = 5  # tweak how many exchanges to show
+    recent = list(reversed(exchanges[-N:]))
+
+    if recent:
+        st.caption("Most recent (top)")
+
+    for idx, ex in enumerate(recent):
+        if idx > 0:
+            st.divider()  # horizontal line between exchanges
+        for role, text in ex:
+            if role == "you":
+                st.markdown(f"**You:** {text}")
+            else:
+                st.markdown(text)
+
